@@ -1,0 +1,454 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Showdown | BOMIS Chennai</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f8ff;
+    color: #12345a;
+    line-height: 1.7;
+}
+
+header {
+    background: linear-gradient(120deg, #0b1d38, #153e70);
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #61c5ff;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #61c5ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 20px 35px;
+    background: linear-gradient(135deg, #e4f1ff, #ffffff);
+}
+
+.hero h1 {
+    font-size: clamp(28px, 4vw, 43px);
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.highlight {
+    color: #0876df;
+}
+
+.hero p {
+    max-width: 850px;
+    margin: 10px auto;
+    font-size: 17px;
+}
+
+.section {
+    max-width: 1250px;
+    margin: auto;
+    padding: 25px 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 28px;
+    box-shadow: 0 6px 25px rgba(18, 52, 90, 0.08);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(18, 52, 90, 0.14);
+}
+
+.proprietary {
+    border: 1px solid #f2bfc8;
+    border-top: 5px solid #cf4055;
+}
+
+.opensource {
+    border: 1px solid #a9e5d0;
+    border-top: 5px solid #07815d;
+}
+
+.card h2 {
+    margin-bottom: 12px;
+    font-size: 25px;
+}
+
+.proprietary h2,
+.proprietary h3 {
+    color: #bd3048;
+}
+
+.opensource h2,
+.opensource h3 {
+    color: #067653;
+}
+
+.card h3 {
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+.card ul {
+    padding-left: 22px;
+}
+
+.card li {
+    margin-bottom: 6px;
+}
+
+.examples {
+    margin-top: 14px;
+    padding: 14px;
+    background: #f4f8fd;
+    border-radius: 10px;
+}
+
+.examples p {
+    padding: 4px 0;
+}
+
+.comparison-title {
+    text-align: center;
+    margin: 18px 0 22px;
+    font-size: 29px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(18, 52, 90, 0.07);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th, td {
+    padding: 13px 18px;
+    text-align: left;
+    border-bottom: 1px solid #dce7f3;
+}
+
+th {
+    background: #dcecff;
+    font-size: 16px;
+}
+
+th:nth-child(2) {
+    background: #ffe8ec;
+    color: #bd3048;
+}
+
+th:nth-child(3) {
+    background: #ddf7ed;
+    color: #067653;
+}
+
+tr:hover td {
+    background: #f4f8ff;
+}
+
+.conclusion {
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    margin-top: 28px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(18, 52, 90, 0.06);
+}
+
+.conclusion h2 {
+    margin-bottom: 10px;
+}
+
+footer {
+    margin-top: 35px;
+    background: #0b1d38;
+    color: white;
+    padding: 35px 7%;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+footer h3 {
+    color: #8bd2ff;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    text-align: center;
+    color: #8bd2ff;
+    font-style: italic;
+    margin-top: 28px;
+    font-size: 18px;
+}
+
+@media (max-width: 750px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo"> Software <span>Showdown</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#examples">Examples</a>
+        <a href="#conclusion">Conclusion</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>
+        Proprietary Software vs
+        <span class="highlight">Open-Source Software</span>
+    </h1>
+
+    <p><strong>Two different approaches. One goal — software for everyone.</strong></p>
+
+    <p>
+        Welcome to our Class 10 group project! Explore the definitions,
+        features, advantages, and examples of proprietary and open-source software.
+    </p>
+</section>
+
+<main class="section" id="about">
+
+    <div class="cards">
+
+        <article class="card proprietary">
+            <h2> Proprietary Software</h2>
+
+            <p>
+                Proprietary software is software owned by an individual
+                or company. Its source code is generally not publicly
+                available, and its licence restricts how users can
+                modify or distribute it.
+            </p>
+
+            <h3>Key Characteristics</h3>
+
+            <ul>
+                <li>Source code is generally private.</li>
+                <li>Owned and controlled by a company or individual.</li>
+                <li>Modification is usually restricted.</li>
+                <li>May require payment or a subscription.</li>
+                <li>Redistribution is controlled by its licence.</li>
+            </ul>
+
+            <div class="examples" id="examples">
+                <h3>Examples</h3>
+                <p> <strong>Microsoft Windows</strong> — Operating system</p>
+                <p> <strong>Adobe Photoshop</strong> — Image editing</p>
+                <p> <strong>Microsoft Office</strong> — Productivity tools</p>
+                <p> <strong>macOS</strong> — Operating system</p>
+            </div>
+        </article>
+
+        <article class="card opensource">
+            <h2> Open-Source Software</h2>
+
+            <p>
+                Open-source software makes its source code available
+                for people to inspect. Its licence allows users to
+                use, modify, and distribute it under specified conditions.
+            </p>
+
+            <h3>Key Characteristics</h3>
+
+            <ul>
+                <li>Source code is publicly available.</li>
+                <li>Can be developed by communities and organisations.</li>
+                <li>Modification is permitted under its licence.</li>
+                <li>Often available free of charge.</li>
+                <li>Redistribution is permitted under its licence.</li>
+            </ul>
+
+            <div class="examples">
+                <h3>Examples</h3>
+                <p> <strong>Linux</strong> — Operating system family</p>
+                <p> <strong>Blender</strong> — 3D modelling</p>
+                <p> <strong>LibreOffice</strong> — Office applications</p>
+                <p> <strong>VLC Media Player</strong> — Media player</p>
+            </div>
+        </article>
+
+    </div>
+
+    <section id="comparison">
+        <h2 class="comparison-title"> Quick Comparison</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Proprietary Software</th>
+                        <th>Open-Source Software</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><strong>Source Code</strong></td>
+                        <td>Generally private</td>
+                        <td>Publicly available</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Modification</strong></td>
+                        <td>Usually restricted</td>
+                        <td>Allowed under its licence</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Cost</strong></td>
+                        <td>May be paid or subscription-based</td>
+                        <td>Often free</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Control</strong></td>
+                        <td>Company or individual</td>
+                        <td>Project maintainers and contributors</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Redistribution</strong></td>
+                        <td>Restricted by licence</td>
+                        <td>Allowed under its licence</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Example</strong></td>
+                        <td>Microsoft Windows</td>
+                        <td>Linux</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="conclusion" id="conclusion">
+        <h2> Conclusion</h2>
+
+        <p>
+            Both proprietary and open-source software are important
+            in today's digital world. Proprietary software offers
+            controlled products and support, while open-source
+            software encourages transparency, collaboration, and
+            customisation. The right choice depends on the user's needs.
+        </p>
+
+        <br>
+
+        <p><strong>Thank you for visiting our project website!</strong></p>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-grid">
+
+        <div>
+            <h3> Team Members</h3>
+            <p>Dhanvant &amp; Daksh</p>
+        </div>
+
+        <div>
+            <h3>Class</h3>
+            <p>10 A</p>
+        </div>
+
+        <div>
+            <h3> School</h3>
+            <p>BOMIS Chennai</p>
+        </div>
+
+    </div>
+
+    <p class="tagline">Better Software, A Brighter Future.</p>
+</footer>
+
+</body>
+</html>
+```
